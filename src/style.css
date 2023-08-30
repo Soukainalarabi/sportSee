@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+  
+  }
+/* style menu de navigation */
+.container{
+    max-width: 1440px; 
+    height: 100%;
+    margin: auto;
+}
+nav{
+    display: flex;
+    background-color: black;
+    color: white;
+    height: 91px;
+    width: 1440px;
+    flex-direction: column;
+}
+ul{
+list-style-type:none;
+}
+.menu-horizontal{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-top: 2px;
+
+}
+.menu-horizontal img{
+    width: 178px;
+    height: 60px;
+}
+.menu-horizontal li {
+    margin-top: 13px;
+}
+.menu-horizontal li+li{
+    padding-left: 200px;
+}
+.menu-vertical{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+        background-color: black;
+    align-items: center;
+    /* margin-left: 199px; */
+    padding-left: 30px;
+    padding-right: 30px;
+
+    height: 1024px;
+    width: 64px;
+}
+.menu-vertical li{
+    padding: 14px;
+}
+.menu-vertical ul{
+    padding-left: 0px;
+    margin-top: 100px;
+}
+.li-vertical{
+    writing-mode: vertical-rl;
+text-orientation: mixed;
+rotate: 180deg;
+color: white;
+}
+/* ///////dashboard */
+.content{
+    display: flex;
+    flex-direction: row;
+}
+.dashboard{
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-top: 9px;
+    background-color: white
+}
+.flexContent{
+    display: flex;
+    margin-top: 100px;
+}
+.poid{
+    background-color: #c0c0c01a;
+    width: 835px;
+    height: 320px;
+    padding-top: 3px;
+}
+.poid p{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.allObject{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.objectifs, .radar, .kpi {
+    width: 258px;
+    height: 263px;
+    border-radius: 10px;
+}
+.kpi p{
+    padding-left: 19px;
+    padding-top: 12px;
+    font-size: 20px;
+}
+.kpi .recharts-responsive-container{
+    margin-top: -24%;
+}
+.calories, .proteines, .glucides, .lipides{
+    display: flex;
+    width: 258px;
+height: 124px;
+justify-content: space-evenly;
+ align-items: center;
+background-color: #c0c0c01a;
+}
+.substrats{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.kpi{
+    background-color:#c0c0c01a ;
+}
+.radar{
+    background-color:rgba(40, 45, 48, 1);
+
+}
+.objectifs {
+    background-color: #FF0000;
+    
+}
+.custom-tooltip{
+    background-color: #FF0000;
+    color: white;
+   width: 39px;
+   height: 63px;
+   font-size: 9px;
+   padding-top: 10px;
+   margin-left: 20px;
+}
+
+.recharts-cartesian-axis-tick-line{
+    display: none;
+}
+
+.poid .recharts-responsive-container {
+    margin: auto!important;
+    padding-top: 30px!important;
+}
+.recharts-legend-icon{
+    clip-path:ellipse(33% 50%)!important;
+}
+.recharts-legend-wrapper{
+    position: absolute;
+    width: 741px!important;
+    height: auto!important;
+    left: -51px!important;
+    /* top: -7px; */
+    top: -60px!important;
+}
+.recharts-polar-grid-angle{
+    display: none;
+}
+.radar .recharts-text {
+    color:white!important;
+}
+/* .recharts-wrapper{
+    margin-left: auto;
+    margin-right: auto;
+} */
+.radar .recharts-responsive-container{
+    width: 87%!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* .recharts-radial-bar-background{
+background-color: green;
+} */
