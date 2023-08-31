@@ -21,11 +21,12 @@ const CustomTooltip = ({active, payload, label}) => {
     );
   }
   return null;
-
- 
 };
+// function diviseContent (value) {
+//   if(value > 70) return value/2
+//   return value
+// }
 function BarChartActivity ({activity,dataKeyX,dataKeyY,bar1,bar2}) {
-  
     return (
       <ResponsiveContainer width="90%" height="60%" margin="auto" paddingTop="60px" >
         <BarChart
@@ -33,20 +34,25 @@ function BarChartActivity ({activity,dataKeyX,dataKeyY,bar1,bar2}) {
           height={300}
           data={activity}
           barSize={10}
+          barCategoryGap="20%"
         >
-          <CartesianGrid strokeDasharray="1 1"  />
+          
           <XAxis dataKey={dataKeyX} 
           tickFormatter={formatXAxis} 
+          axisLine={{ stroke: '#DEDEDE' }} 
+          dy={1}
       />
-          <YAxis dataKey={bar1} domain={[60,80]} orientation="right"/>
 
+
+          <YAxis dataKey={bar1}  orientation="right" axisLine={{ stroke: 'transparent' }}  domain={[0, 500]}
+
+/>
+<CartesianGrid x="inherit" strokeDasharray="3" />
+          <Bar name="Poids (kg)" dataKey={bar1} fill="black" radius={[10, 10, 0, 0]} />
+          <Bar  name="Calories brulées (kCal)"dataKey={bar2} fill="red"  radius={[10, 10, 0, 0]}/>
           <Legend verticalAlign="top" align="end" />
           <Tooltip content={<CustomTooltip/>}        
- allowEscapeViewBox= {{x:true,y:true}}/>
-
-          <Bar dataKey={bar1} fill="black" style={{ borderRadius: "10px 10px 0 0" }}/>
-          <Bar dataKey={bar2} fill="red"style={{ borderRadius: "10px 10px 0 0" }} />
-
+          allowEscapeViewBox= {{x:true,y:true}}/>
         </BarChart>
       </ResponsiveContainer>
     );

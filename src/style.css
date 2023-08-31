@@ -55,6 +55,16 @@ list-style-type:none;
 .menu-vertical li{
     padding: 14px;
 }
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.title h2{
+    font-size: 32px;
+    color: red;
+    padding-left: 10px;
+}
 .menu-vertical ul{
     padding-left: 0px;
     margin-top: 100px;
@@ -78,11 +88,10 @@ color: white;
 }
 .flexContent{
     display: flex;
-    margin-top: 100px;
-}
+    margin-top: 59px;}
 .poid{
     background-color: #c0c0c01a;
-    width: 835px;
+    width: 950px;
     height: 320px;
     padding-top: 3px;
 }
@@ -97,7 +106,7 @@ color: white;
     margin-top: 15px;
 }
 .objectifs, .radar, .kpi {
-    width: 258px;
+    width: 281px;;
     height: 263px;
     border-radius: 10px;
 }
@@ -111,8 +120,8 @@ color: white;
 }
 .calories, .proteines, .glucides, .lipides{
     display: flex;
-    width: 258px;
-height: 124px;
+    width: 200px;
+     height: 102px;
 justify-content: space-evenly;
  align-items: center;
 background-color: #c0c0c01a;
@@ -132,6 +141,8 @@ background-color: #c0c0c01a;
 }
 .objectifs {
     background-color: #FF0000;
+  
+
     
 }
 .custom-tooltip{
@@ -155,7 +166,7 @@ background-color: #c0c0c01a;
 .recharts-legend-icon{
     clip-path:ellipse(33% 50%)!important;
 }
-.recharts-legend-wrapper{
+.poid .recharts-legend-wrapper{
     position: absolute;
     width: 741px!important;
     height: auto!important;
@@ -180,4 +191,38 @@ background-color: #c0c0c01a;
 }
 /* .recharts-radial-bar-background{
 background-color: green;
+} */
+.recharts-legend-item-text{
+    color: #74798C!important;
+}
+.objectifs .recharts-text {
+    color: white;
+}
+.custom-tooltipLine{
+    background-color: white;
+    font-size: 10px;
+    width: 39px;
+    height: 25px;
+}
+.label1{
+line-height: 25px;    
+text-align: center;
+
+}
+.objectifs .recharts-legend-item legend-item-0{
+    display: none!important;
+}
+.objectifs .recharts-legend-item-text {
+    color: #f5faf569!important;
+    opacity: 0,5;
+    margin-top: -206px;
+    margin-left: -94px;
+    position: absolute;
+    text-align: initial;
+}
+
+.objectifs .recharts-legend-icon{
+display: none;}
+/* .recharts-cartesian-axis-tick + .recharts-cartesian-axis-tick{
+    padding-left: 50px!important;
 } */

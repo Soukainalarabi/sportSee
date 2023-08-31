@@ -1,6 +1,6 @@
 import React from "react"
-import { useState,useEffect } from "react"
-import { useParams } from "react-router-dom";
+// import { useState,useEffect } from "react"
+// import { useParams } from "react-router-dom";
 import calories from "../../assets/calories-icon.png"
 import glucide from"../../assets/carbs-icon.png"
 import proteine from "../../assets/protein-icon.png"
@@ -11,42 +11,22 @@ import '../../style.css'
 import Substrats from "../Substrats"
 import BarChartActivity from "../BarChart";
 import RadialBarScoreChart from "../RadialBarChart";
+import Api from "../../datas";
 
 function Dashboard(){
-  const { id } = useParams(); // Extract userId from URL parameter
-  const [dataUser, setDataUser] = useState({});
-  const [dataAverage, setDataAverage] = useState({});
-  const [dataPerformance, setDataPerformance] = useState({});
-  const [dataActivity, setDataActivity] = useState({});
-  useEffect(() => {
-    const fetchDatas = async () => {
-      /////////////user////////////////////////
-      const resUser = await fetch(`http://localhost:3000/user/${id}`); 
-      const jsonDataUser = await resUser.json();
-      setDataUser(jsonDataUser?.data);
-      //////////////average////////////////////////
-       const resAverage = await fetch(`http://localhost:3000/user/${id}/average-sessions`); 
-      const jsonDataAverage = await resAverage.json();
-      setDataAverage(jsonDataAverage?.data);
-      //////////////performance////////////////////////
-      const resPerformance = await fetch(`http://localhost:3000/user/${id}/performance`); 
-      const jsonDataPerformance = await resPerformance.json();
-      setDataPerformance(jsonDataPerformance?.data);
-       console.log(jsonDataUser.data?.score?jsonDataUser.data?.score :jsonDataUser.data?.todayScore)
-      ////////////activity////////////////////////
-      const resActivity = await fetch(`http://localhost:3000/user/${id}/activity`); 
-      const jsonDataActivity = await resActivity.json();
-      setDataActivity(jsonDataActivity?.data);
-      console.log(jsonDataActivity.data?.sessions)
-   };
-    fetchDatas();
-  }, [id]);
+  const {
+    dataUser,
+    dataAverage,
+    dataPerformance,
+    dataActivity,
+} = Api(); 
 return(
 <div className="dashboard">
     <div className="title">
-     <h1>Bonjour {dataUser.userInfos?.firstName} </h1> 
+     <h1>Bonjour  </h1> 
+     <h2>{dataUser.userInfos?.firstName}</h2>
+     </div>
     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-    </div>
     <div className="flexContent">
     <div className="charts">
      <div className="poid">
@@ -62,7 +42,6 @@ return(
     <div className="allObject">
              
     <div className="objectifs">
-
                 <LineChartObjectif
                 sessions={dataAverage.sessions}
                 xAxisDataKey="day"
@@ -81,9 +60,8 @@ return(
               <RadialBarScoreChart
              key={dataUser.id}
              scores={[{ x: dataUser.score || dataUser.todayScore }]} 
-             score={`${dataUser.score*100 || dataUser.todayScore*100} %`}
-             
-              />
+             score={`${dataUser.score*100 || dataUser.todayScore*100} %`}   
+           />
             </div>
             </div>
     </div>
@@ -92,13 +70,11 @@ return(
     icon={calories} 
     title="calories"
     keyData={`${dataUser.keyData?.calorieCount} KCal`}
-/>
+    />
     <Substrats 
     icon={proteine} 
     title="proteines"
     keyData={`${dataUser.keyData?.proteinCount} g`}
-
-
     />
     <Substrats 
     icon={glucide} 
@@ -112,34 +88,6 @@ return(
 
     />
 </div>
-
-
-      {/* <div className="substrats">
-        <div className="calories">
-             <img src={calories} alt="" style={{width:60,height:60}}/>
-             <div className="textCalorie">
-               <p>calories</p>
-            </div>
-        </div>
-        <div className="proteines">
-             <img src={proteine} alt="" style={{width:60,height:60}}/>
-             <div className="textCalorie">
-               <p>calories</p>
-            </div>
-        </div>
-        <div className="glucides">
-             <img src={glucide} alt="" style={{width:60,height:60}}/>
-             <div className="textCalorie">
-               <p>calories</p>
-            </div>
-        </div>
-        <div className="lipides">
-             <img src={lipide} alt="" style={{width:60,height:60}}/>
-             <div className="textCalorie">
-               <p>calories</p>
-            </div>
-        </div> 
-    </div> */}
     </div>
 </div>
 )

@@ -18,7 +18,7 @@ function RadarChartPerformance ({performance, polarDataKey, radarDataKey }) {
       <ResponsiveContainer  width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" data={performance} outerRadius="70%">
           <PolarGrid />
-          <PolarAngleAxis dataKey={polarDataKey} tickFormatter={formatXAxis}   tick={{ fontSize: '12px', dy: 6, dx: -4, cx: 4, cy: -6 }}
+          <PolarAngleAxis dataKey={polarDataKey} tickFormatter={formatXAxis}   tick={{ fontSize: '10px', dy: 4, dx: -4, cx: 4, cy: -6 }}
   tickLine={false}/>
           <Radar name="Mike" dataKey={radarDataKey }  fill="#FF0101B2" fillOpacity={0.6} />
         </RadarChart>
