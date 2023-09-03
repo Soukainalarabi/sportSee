@@ -27,6 +27,7 @@ list-style-type:none;
     /* justify-content: space-between; */
     align-items: center;
     margin-top: 2px;
+    font-size: 24px
 
 }
 .menu-horizontal img{
@@ -61,9 +62,11 @@ list-style-type:none;
     align-items: center;
 }
 .title h2{
-    font-size: 32px;
     color: red;
     padding-left: 10px;
+}
+.title h1 ,h2{
+    font-size: 48px;
 }
 .menu-vertical ul{
     padding-left: 0px;
@@ -140,17 +143,15 @@ background-color: #c0c0c01a;
 
 }
 .objectifs {
-    background-color: #FF0000;
-  
-
-    
+    background-color: #FF0000;   
 }
 .custom-tooltip{
-    background-color: #FF0000;
+    background-color: red;
     color: white;
    width: 39px;
    height: 63px;
-   font-size: 9px;
+   text-align: center;
+   font-size: 7px;
    padding-top: 10px;
    margin-left: 20px;
 }
@@ -170,9 +171,9 @@ background-color: #c0c0c01a;
     position: absolute;
     width: 741px!important;
     height: auto!important;
-    left: -51px!important;
+    left: 94px!important;
     /* top: -7px; */
-    top: -60px!important;
+    top: -60px!important
 }
 .recharts-polar-grid-angle{
     display: none;
@@ -192,7 +193,7 @@ background-color: #c0c0c01a;
 /* .recharts-radial-bar-background{
 background-color: green;
 } */
-.recharts-legend-item-text{
+.poid .recharts-legend-item-text{
     color: #74798C!important;
 }
 .objectifs .recharts-text {
@@ -207,7 +208,10 @@ background-color: green;
 .label1{
 line-height: 25px;    
 text-align: center;
-
+font-size: 7px;
+}
+.custom-tooltip{
+    font-size: 7px;
 }
 .objectifs .recharts-legend-item legend-item-0{
     display: none!important;
@@ -226,3 +230,28 @@ display: none;}
 /* .recharts-cartesian-axis-tick + .recharts-cartesian-axis-tick{
     padding-left: 50px!important;
 } */
+.poid ul{
+    text-align: end!important;
+    /* margin-left: 20px!important; */
+}
+.recharts-cartesian-grid-vertical{
+    display: none;
+}
+/* .poid .recharts-cartesian-axis-line{
+    width: 100px!important;
+} */
+/* .recharts-rectangle + .recharts-bar-rectangle{
+    fill: pink;
+    margin-left: 20px !important;
+  } */
+  /* .poid line{
+width: 100px!important; 
+
+  } */
+  .myChart .recharts-x-axis .recharts-cartesian-axis-tick-value {
+    transform: translateY(6px);
+  }
+  
+  .myChart .recharts-y-axis .recharts-cartesian-axis-tick-value {
+    transform: translateX(-6px);
+  }
