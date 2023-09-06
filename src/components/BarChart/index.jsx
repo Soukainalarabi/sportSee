@@ -29,7 +29,7 @@ function BarChartActivity({
   activity, dataKeyX, bar1, bar2,
 }) {
   return (
-    <ResponsiveContainer width="80%" height="60%" paddingTop="60px" paddingLeft="60px">
+    <ResponsiveContainer width="90%" height="60%" paddingTop="60px" paddingLeft="60px">
       <BarChart
         data={activity}
         barSize={10}
@@ -74,7 +74,10 @@ CustomTooltip.defaultProps = {
 
 };
 BarChartActivity.propTypes = {
-  activity: PropTypes.arrayOf(PropTypes.shape({ value: PropTypes.number })),
+  activity: PropTypes.arrayOf(PropTypes.shape({
+    kilogram: PropTypes.number,
+    calories: PropTypes.number,
+  })),
   dataKeyX: PropTypes.string,
   bar1: PropTypes.string,
   bar2: PropTypes.string,

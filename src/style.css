@@ -2,7 +2,6 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-color: black;
-  
   }
 /* style menu de navigation */
 .container{
@@ -24,7 +23,6 @@ list-style-type:none;
 .menu-horizontal{
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: center;
     margin-top: 2px;
     font-size: 24px
@@ -87,8 +85,11 @@ color: white;
     padding-right: 100px;
     padding-left: 100px;
     margin-top: 9px;
-    background-color: white
+    background-color: white;
+    /* max-width:1400px;
+    height:auto;  */
 }
+
 .flexContent{
     display: flex;
     margin-top: 59px;}
@@ -145,15 +146,17 @@ background-color: #c0c0c01a;
 .objectifs {
     background-color: #FF0000;   
 }
-.custom-tooltip{
+.poid .custom-tooltip{
     background-color: red;
     color: white;
    width: 39px;
    height: 63px;
    text-align: center;
    font-size: 7px;
-   padding-top: 10px;
-   margin-left: 20px;
+   /* padding-top: 10px; */
+   margin-left: 45px;
+   font-weight: 500;
+line-height: 24px;
 }
 
 .recharts-cartesian-axis-tick-line{
@@ -181,18 +184,13 @@ background-color: #c0c0c01a;
 .radar .recharts-text {
     color:white!important;
 }
-/* .recharts-wrapper{
-    margin-left: auto;
-    margin-right: auto;
-} */
+
 .radar .recharts-responsive-container{
     width: 87%!important;
     margin-left: auto;
     margin-right: auto;
 }
-/* .recharts-radial-bar-background{
-background-color: green;
-} */
+
 .poid .recharts-legend-item-text{
     color: #74798C!important;
 }
@@ -201,6 +199,7 @@ background-color: green;
 }
 .custom-tooltipLine{
     background-color: white;
+    margin-top: 80px;
     font-size: 10px;
     width: 39px;
     height: 25px;
@@ -210,9 +209,7 @@ line-height: 25px;
 text-align: center;
 font-size: 7px;
 }
-.custom-tooltip{
-    font-size: 7px;
-}
+
 .objectifs .recharts-legend-item legend-item-0{
     display: none!important;
 }
@@ -227,31 +224,23 @@ font-size: 7px;
 
 .objectifs .recharts-legend-icon{
 display: none;}
-/* .recharts-cartesian-axis-tick + .recharts-cartesian-axis-tick{
-    padding-left: 50px!important;
-} */
+
 .poid ul{
     text-align: end!important;
-    /* margin-left: 20px!important; */
 }
 .recharts-cartesian-grid-vertical{
     display: none;
 }
-/* .poid .recharts-cartesian-axis-line{
-    width: 100px!important;
-} */
-/* .recharts-rectangle + .recharts-bar-rectangle{
-    fill: pink;
-    margin-left: 20px !important;
-  } */
-  /* .poid line{
-width: 100px!important; 
 
-  } */
   .myChart .recharts-x-axis .recharts-cartesian-axis-tick-value {
     transform: translateY(6px);
   }
   
   .myChart .recharts-y-axis .recharts-cartesian-axis-tick-value {
     transform: translateX(-6px);
+  }
+  @media(max-width:1024px){
+    .li-vertical {
+         margin-top: 200px; 
+    }
   }

@@ -4,20 +4,18 @@ import logo from '../../assets/logo.png';
 
 function Header() {
   return (
-    <div className="container">
-      <nav>
-        <ul className="menu-horizontal">
-          <li>
-            <img src={logo} alt="logo du site" />
-          </li>
-          <li>Accueil</li>
-          <li>Profil</li>
-          <li>Réglages</li>
-          <li>Communauté</li>
-        </ul>
+    <nav>
+      <ul className="menu-horizontal">
+        <li>
+          <img src={logo} alt="logo du site" />
+        </li>
+        <li>Accueil</li>
+        <li>Profil</li>
+        <li>Réglages</li>
+        <li>Communauté</li>
+      </ul>
 
-      </nav>
-    </div>
+    </nav>
   );
 }
 export default Header;

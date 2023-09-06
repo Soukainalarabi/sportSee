@@ -13,6 +13,7 @@ import RadialBarScoreChart from '../RadialBarChart';
 
 function Dashboard() {
   const {
+    isLoading,
     dataUser,
     dataAverage,
     dataPerformance,
@@ -20,11 +21,13 @@ function Dashboard() {
   } = Api();
   return (
     <div className="dashboard">
+
       <div className="title">
         <h1>Bonjour  </h1>
         <h2>{dataUser.userInfos && dataUser.userInfos.firstName}</h2>
       </div>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+
       <div className="flexContent">
         <div className="charts">
           <div className="poid">
@@ -56,10 +59,13 @@ function Dashboard() {
             <div className="kpi">
               <p>Score</p>
               <RadialBarScoreChart
-                key={dataUser.id}
-                scores={[{ x: dataUser.score || dataUser.todayScore }]}
-                score={`${dataUser.score * 100 || dataUser.todayScore * 100} %`}
+                isLoading={isLoading} // Passez la valeur d'isLoading depuis le composant parent
+                scores={isLoading ? [] : [{
+                  x: dataUser.score ? dataUser.score : dataUser.todayScore,
+                }]}
+                score={isLoading ? '' : `${dataUser.score ? dataUser.score * 100 : dataUser.todayScore * 100} %`}
               />
+
             </div>
           </div>
         </div>
@@ -94,6 +100,7 @@ function Dashboard() {
           )}
         </div>
       </div>
+
     </div>
   );
 }

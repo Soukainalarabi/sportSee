@@ -3,10 +3,17 @@ import { useParams } from 'react-router-dom';
 
 function Api() {
   const { id } = useParams();
-  const [dataUser, setDataUser] = useState({});
-  const [dataAverage, setDataAverage] = useState({});
-  const [dataPerformance, setDataPerformance] = useState({});
-  const [dataActivity, setDataActivity] = useState({});
+  const [isLoading, setLoading] = useState(true);
+  const [dataUser, setDataUser] = useState({ todayScore: 0 });
+  const [dataAverage, setDataAverage] = useState({
+    sessions: [],
+  });
+  const [dataPerformance, setDataPerformance] = useState({
+    data: [],
+  });
+  const [dataActivity, setDataActivity] = useState({
+    sessions: [],
+  });
 
   const fetchUser = async () => {
     const resUser = await fetch(`http://localhost:3000/user/${id}`);
@@ -37,8 +44,14 @@ function Api() {
     fetchAverage();
     fetchPerformance();
     fetchActivity();
-  });
+  }, [id]);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
   return {
+    isLoading,
     dataUser,
     dataAverage,
     dataPerformance,
