@@ -19,6 +19,7 @@ function Dashboard() {
     dataPerformance,
     dataActivity,
   } = Api();
+
   return (
     <div className="dashboard">
 
@@ -26,8 +27,7 @@ function Dashboard() {
         <h1>Bonjour  </h1>
         <h2>{dataUser.userInfos && dataUser.userInfos.firstName}</h2>
       </div>
-      <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-
+      <p>Félicitation ! Vous avez explosé vos objectifs hier 👏  </p>
       <div className="flexContent">
         <div className="charts">
           <div className="poid">
@@ -59,7 +59,7 @@ function Dashboard() {
             <div className="kpi">
               <p>Score</p>
               <RadialBarScoreChart
-                isLoading={isLoading} // Passez la valeur d'isLoading depuis le composant parent
+                isLoading={isLoading}
                 scores={isLoading ? [] : [{
                   x: dataUser.score ? dataUser.score : dataUser.todayScore,
                 }]}

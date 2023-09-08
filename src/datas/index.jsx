@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { apiUrl, userSuffix } from '../config';
 
 function Api() {
   const { id } = useParams();
@@ -16,27 +17,28 @@ function Api() {
   });
 
   const fetchUser = async () => {
-    const resUser = await fetch(`http://localhost:3000/user/${id}`);
+    const resUser = await fetch(`${apiUrl}/${id}${userSuffix}`);
     const jsonDataUser = await resUser.json();
-    setDataUser(jsonDataUser.data);
+    setDataUser(jsonDataUser.data || jsonDataUser);
   };
 
   const fetchAverage = async () => {
-    const resAverage = await fetch(`http://localhost:3000/user/${id}/average-sessions`);
+    const resAverage = await fetch(`${apiUrl}/${id}/average-sessions`);
     const jsonDataAverage = await resAverage.json();
-    setDataAverage(jsonDataAverage.data);
+    setDataAverage(jsonDataAverage.data || jsonDataAverage);
   };
 
   const fetchPerformance = async () => {
-    const resPerformance = await fetch(`http://localhost:3000/user/${id}/performance`);
+    const resPerformance = await fetch(`${apiUrl}/${id}/performance`);
     const jsonDataPerformance = await resPerformance.json();
-    setDataPerformance(jsonDataPerformance.data);
+    setDataPerformance(jsonDataPerformance.data.data
+      ? jsonDataPerformance.data : jsonDataPerformance);
   };
 
   const fetchActivity = async () => {
-    const resActivity = await fetch(`http://localhost:3000/user/${id}/activity`);
+    const resActivity = await fetch(`${apiUrl}/${id}/activity`);
     const jsonDataActivity = await resActivity.json();
-    setDataActivity(jsonDataActivity.data);
+    setDataActivity(jsonDataActivity.data || jsonDataActivity);
   };
 
   useEffect(() => {

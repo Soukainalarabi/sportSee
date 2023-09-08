@@ -82,8 +82,8 @@ color: white;
     flex-direction: row;
 }
 .dashboard{
-    padding-right: 100px;
-    padding-left: 100px;
+    padding-right: 45px;
+        padding-left: 100px;
     margin-top: 9px;
     background-color: white;
     /* max-width:1400px;
