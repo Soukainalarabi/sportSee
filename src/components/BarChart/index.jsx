@@ -15,6 +15,9 @@ function formatXAxis(day) {
   return day;
 }
 function CustomTooltip({ active, payload }) {
+  // //active détermine si l'info-bulle doit être active ou non
+  // payload est un tableau de points de données à afficher dans l'info-bulle
+  // vérifie si active est true et si payload est défini et a une longueur supérieure à zéro.
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">

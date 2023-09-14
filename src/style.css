@@ -239,6 +239,19 @@ display: none;}
   .myChart .recharts-y-axis .recharts-cartesian-axis-tick-value {
     transform: translateX(-6px);
   }
+  .erreur-img{
+    display: block;
+margin: auto;
+margin-top: 17%;
+}
+.home a {
+    font-size: 18px;
+    color: #FF6060;
+}
+.home{
+    text-align: center;
+     margin-top: 8%;
+ }
   @media(max-width:1024px){
     .li-vertical {
          margin-top: 200px; 

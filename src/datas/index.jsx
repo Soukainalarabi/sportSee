@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { apiUrl, userSuffix } from '../config';
 
 function Api() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [isLoading, setLoading] = useState(true);
   const [dataUser, setDataUser] = useState({ todayScore: 0 });
   const [dataAverage, setDataAverage] = useState({
@@ -15,13 +16,6 @@ function Api() {
   const [dataActivity, setDataActivity] = useState({
     sessions: [],
   });
-
-  const fetchUser = async () => {
-    const resUser = await fetch(`${apiUrl}/${id}${userSuffix}`);
-    const jsonDataUser = await resUser.json();
-    setDataUser(jsonDataUser.data || jsonDataUser);
-  };
-
   const fetchAverage = async () => {
     const resAverage = await fetch(`${apiUrl}/${id}/average-sessions`);
     const jsonDataAverage = await resAverage.json();
@@ -41,11 +35,21 @@ function Api() {
     setDataActivity(jsonDataActivity.data || jsonDataActivity);
   };
 
+  const fetchAll = async () => {
+    try {
+      const resUser = await fetch(`${apiUrl}/${id}${userSuffix}`);
+      const jsonDataUser = await resUser.json();
+      setDataUser(jsonDataUser.data || jsonDataUser);
+      fetchAverage();
+      fetchPerformance();
+      fetchActivity();
+    } catch (error) {
+      navigate('/');
+    }
+  };
+
   useEffect(() => {
-    fetchUser();
-    fetchAverage();
-    fetchPerformance();
-    fetchActivity();
+    fetchAll();
   }, [id]);
   useEffect(() => {
     setTimeout(() => {
